@@ -13,7 +13,7 @@ const KEY_CODE = {
 
 export default class ReactCodeInput extends Component {
   static propTypes = {
-    type: PropTypes.oneOf(['text', 'number']),
+    type: PropTypes.oneOf(['text', 'number', 'tel', 'password']),
     onChange: PropTypes.func,
     onComplete: PropTypes.func,
     fields: PropTypes.number,
@@ -218,7 +218,7 @@ export default class ReactCodeInput extends Component {
         <div className={styles['react-code-input']}>
           {values.map((value, index) => (
             <input
-              type={type === 'number' ? 'tel' : type}
+              type={this.props.type}
               pattern={type === 'number' ? '[0-9]*' : null}
               autoFocus={autoFocus && index === autoFocusIndex}
               style={INPUT_STYLE}

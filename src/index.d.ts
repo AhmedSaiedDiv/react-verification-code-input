@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ReactCodeInputProps {
-  type?: 'text' | 'number';
+  type?: 'text' | 'number' | 'tel' | 'password';
   onChange?: (val: string) => void;
   onComplete?: (val: string) => void;
   fields?: number;
