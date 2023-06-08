@@ -46,6 +46,8 @@ class Example extends Component {
 |  className  | string |           class name            |
 |   values    | array  |         default values          |
 | placeholder | array  |        input placeholder        |
+|   pattern   | string |          input pattern          |
+|  inputmode  |  text  |            input mode           |
 
 ## License
 

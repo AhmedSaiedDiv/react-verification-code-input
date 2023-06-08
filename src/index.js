@@ -27,7 +27,9 @@ export default class ReactCodeInput extends Component {
     values: PropTypes.arrayOf(PropTypes.string),
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    placeholder: PropTypes.arrayOf(PropTypes.string)
+    placeholder: PropTypes.arrayOf(PropTypes.string),
+    pattern: PropTypes.string,
+    inputmode: PropTypes.oneOf(['text' | 'numeric' | 'tel']),
   };
 
   static defaultProps = {
@@ -38,7 +40,8 @@ export default class ReactCodeInput extends Component {
     autoFocus: true,
     disabled: false,
     required: false,
-    placeholder: []
+    placeholder: [],
+    inputmode: 'text',
   };
 
   constructor(props) {
@@ -219,7 +222,7 @@ export default class ReactCodeInput extends Component {
           {values.map((value, index) => (
             <input
               type={this.props.type}
-              pattern={type === 'number' ? '[0-9]*' : null}
+              pattern={this.props.pattern}
               autoFocus={autoFocus && index === autoFocusIndex}
               style={INPUT_STYLE}
               key={`${this.id}-${index}`}
@@ -234,6 +237,7 @@ export default class ReactCodeInput extends Component {
               disabled={this.props.disabled}
               required={this.props.required}
               placeholder={this.props.placeholder[index]}
+              inputmode={this.props.inputmode}
             />
           ))}
         </div>

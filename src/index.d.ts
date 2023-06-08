@@ -15,6 +15,8 @@ interface ReactCodeInputProps {
   disabled?: boolean;
   required?: boolean;
   placeholder?: string[];
+  pattern?: string;
+  inputmode?: 'text' | 'numeric' | 'tel';
 }
 
 declare class ReactCodeInput extends React.Component<ReactCodeInputProps> {
